@@ -16,5 +16,6 @@ namespace tthk_triangle
         {
             InitializeComponent();
         }
+
     }
 }
