@@ -17,5 +17,9 @@ namespace tthk_triangle
             InitializeComponent();
         }
 
+        private void launchButton_Click(object sender, EventArgs e)
+        {
+
+        }
     }
 }
