@@ -8,11 +8,13 @@ namespace tthk_triangle
 {
     class Triangle
     {
+        
         // Поля
         public double a;
         public double b;
         public double c;
-        public int color;
+        public double outline;
+        
 
         // Свойства
         public double GetSetA
@@ -33,12 +35,6 @@ namespace tthk_triangle
             set { c = value; }
         }
 
-        public int GetSetColor
-        {
-            get { return color; }
-            set { color = value;  }
-        }
-
         public bool ExistTriange
         {
             get
@@ -55,15 +51,15 @@ namespace tthk_triangle
             a = A;
             b = B;
             c = C;
-            color = 0;
+            outline = 1;
         }
 
-        public Triangle(double A, double B, double C, int Color)
+        public Triangle(double A, double B, double C, double _outline)
         {
             a = A;
             b = B;
             c = C;
-            color = Color;
+            outline = _outline;
         }
 
         public Triangle()
