@@ -45,7 +45,7 @@ namespace tthk_triangle
             }
         }
 
-        // Методы
+        // Конструкторы
         public Triangle(double A, double B, double C) // конструктор
         {
             a = A;
@@ -69,6 +69,7 @@ namespace tthk_triangle
             c = 0;
         }
 
+        // Методы
         public string OutputA() // вывод сторон
         {
             return Convert.ToString(a);
