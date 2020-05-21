@@ -17,7 +17,7 @@ namespace tthk_triangle
         
 
         // Свойства
-        public double GetSetA
+        public double GetSetA // получить или узнать значения стороны треугольника
         {
             get { return a; }
             set { a = value; }
@@ -29,13 +29,13 @@ namespace tthk_triangle
             set { b = value; }
         }
 
-        public double GetSetC
+        public double GetSetC 
         {
             get { return c; }
             set { c = value; }
         }
 
-        public bool ExistTriange
+        public bool ExistTriangle // существует ли треугольник
         {
             get
             {
@@ -46,7 +46,7 @@ namespace tthk_triangle
         }
 
         // Методы
-        public Triangle(double A, double B, double C)
+        public Triangle(double A, double B, double C) // конструктор
         {
             a = A;
             b = B;
@@ -54,7 +54,7 @@ namespace tthk_triangle
             outline = 1;
         }
 
-        public Triangle(double A, double B, double C, double _outline)
+        public Triangle(double A, double B, double C, double _outline) // конструктор с линиями по краям
         {
             a = A;
             b = B;
@@ -62,14 +62,14 @@ namespace tthk_triangle
             outline = _outline;
         }
 
-        public Triangle()
+        public Triangle() // конструктор без атрибутов
         {
             a = 0;
             b = 0;
             c = 0;
         }
 
-        public string OutputA()
+        public string OutputA() // вывод сторон
         {
             return Convert.ToString(a);
         }
@@ -84,25 +84,25 @@ namespace tthk_triangle
             return Convert.ToString(c);
         }
 
-        public double Perimeter()
+        public double Perimeter() // периметр
         {
             double p = a + b + c;
             return p;
         }
         
-        public double HalfPerimeter()
+        public double HalfPerimeter() // полупериметр
         {
             return Perimeter() / 2;
         }
 
-        public double Surface()
+        public double Surface() // площадь
         {
             double p = HalfPerimeter();
             double s = Math.Sqrt((p * (p - a) * (p - b) * (p - c)));
             return s;
         }
 
-        public double Height()
+        public double Height() // высота
         {
             double p = HalfPerimeter();
             double h = 2 * Math.Sqrt( p * (p - a) * (p - b) * (p - c) ) / a;
