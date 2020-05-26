@@ -39,11 +39,28 @@ namespace tthk_triangle
         {
             get
             {
-                if ((a > b + c) && (b > a + c) && (c > a + b))
-                    return false;
-                else return true;
+                if ((a < b + c) && (b < a + c) && (c < a + b))
+                    return true;
+                else return false;
             }
         }
+
+        public string TriangleType
+        {
+            get
+            {
+                if (a == b && b == c && c == a)
+                {
+                    return "Равносторонний";
+                }
+                else if (b == c || a == b || c == a)
+                {
+                    return "Равнобедренный";
+                }
+                else return "Разносторонний";
+            }
+        }
+
 
         // Конструкторы
         public Triangle(double A, double B, double C) // конструктор
