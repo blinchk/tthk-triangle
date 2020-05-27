@@ -13,7 +13,7 @@ namespace tthk_triangle
         public double a;
         public double b;
         public double c;
-        public double outline;
+        public double h;
         
 
         // Свойства
@@ -35,9 +35,15 @@ namespace tthk_triangle
             set { c = value; }
         }
 
+        public double GetSetH
+        {
+            get { return h; }
+            set { h = value; }
+        }
+
         public bool ExistTriangle // существует ли треугольник
         {
-            get
+            get 
             {
                 if ((a < b + c) && (b < a + c) && (c < a + b))
                     return true;
@@ -68,15 +74,25 @@ namespace tthk_triangle
             a = A;
             b = B;
             c = C;
-            outline = 1;
+            h = Height();
         }
 
-        public Triangle(double A, double B, double C, double _outline) // конструктор с линиями по краям
+        public Triangle(bool byHeight, double A, double H) // конструктор с линиями по краям
         {
-            a = A;
-            b = B;
-            c = C;
-            outline = _outline;
+            if (byHeight == true)
+            {
+                a = A;
+                h = H;
+                b = h;
+                c = Math.Sqrt(Math.Pow(a, 2) + Math.Pow(h, 2));
+            }
+            else 
+            {
+                a = A;
+                h = H;
+                b = Math.Sqrt(Math.Pow(a / 2, 2) + Math.Pow(h, 2));
+                c = b;
+            }
         }
 
         public Triangle() // конструктор без атрибутов
