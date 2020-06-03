@@ -13,7 +13,7 @@ namespace tthk_triangle
 {
     public partial class Form1 : Form
     {
-        public bool byHeight;
+        private bool byHeight;
         public Form1()
         {
             byHeight = false;
@@ -51,7 +51,7 @@ namespace tthk_triangle
                 else listView1.Items[6].SubItems.Add("Не существует");
                 listView1.Items[7].SubItems.Add(triangle.TriangleType); // выводим вид треугольника
             }
-            else if (txtA.Text.Length > 0 && txtH.Text.Length > 0)
+            else if (txtA.Text.Length > 0 && txtH.Text.Length > 0)  
             {
                 double a, h;
                 a = Convert.ToDouble(txtA.Text); // считываем значение стороны а
@@ -75,11 +75,6 @@ namespace tthk_triangle
                 else listView1.Items[6].SubItems.Add("Не существует");
                 listView1.Items[7].SubItems.Add(triangle.TriangleType); // выводим вид треугольника
             }
-        }
-
-        private void launchButton_DoubleClick(object sender, EventArgs e)
-        {
-
         }
 
         private void txtC_TextChanged(object sender, EventArgs e)
@@ -114,12 +109,29 @@ namespace tthk_triangle
 
         private void textBox1_TextChanged(object sender, EventArgs e)
         {
-
+            if (txtH.TextLength > 0)
+            {
+                txtB.Enabled = false;
+                txtC.Enabled = false;
+                checkBox1.Enabled = true;
+            }
+            else
+            {
+                txtB.Enabled = true;
+                txtC.Enabled = true;
+                checkBox1.Enabled = false;
+            }
         }
 
         private void checkBox1_CheckedChanged(object sender, EventArgs e)
         {
             byHeight = checkBox1.Checked;
+        }
+
+        private void linkLabel1_Click(object sender, EventArgs e)
+        {
+            Form2 anotherDesign = new Form2();
+            anotherDesign.ShowDialog();
         }
     }
 }
