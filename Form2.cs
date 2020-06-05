@@ -105,6 +105,7 @@ namespace tthk_triangle
                 double a, h;
                 a = Convert.ToDouble(txtA.Text); // считываем значение стороны а
                 h = Convert.ToDouble(txtH.Text);
+                byHeight = heightCheckbox.Checked;
                 Triangle triangle = new Triangle(byHeight, a, h); // создаем объект класса Triangle с именем triangle
                 listView1.Items.Add("Сторона а"); // добавляем соответсвующие ячейки в коллекцию items объекта listview1
                 listView1.Items.Add("Сторона b"); // (при клике на кнопку Запуск первый столбец заполнится этими нашими именами)
