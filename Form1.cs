@@ -131,7 +131,7 @@ namespace tthk_triangle
         private void linkLabel1_Click(object sender, EventArgs e)
         {
             Form2 anotherDesign = new Form2();
-            anotherDesign.ShowDialog();
+            anotherDesign.Show();
         }
     }
 }
