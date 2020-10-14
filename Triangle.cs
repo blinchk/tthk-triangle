@@ -47,7 +47,7 @@ namespace tthk_triangle
             {
                 if ((a < b + c) && (b < a + c) && (c < a + b))
                     return true;
-                else return false;
+                return false;
             }
         }
 
@@ -63,7 +63,7 @@ namespace tthk_triangle
                 {
                     return "Равнобедренный";
                 }
-                else return "Разносторонний";
+                return "Разносторонний";
             }
         }
 
@@ -77,7 +77,7 @@ namespace tthk_triangle
             h = Height();
         }
 
-        public Triangle(bool byHeight, double A, double H) // конструктор с линиями по краям
+        public Triangle(bool byHeight, double A, double H) // конструктор равнобедренного треугольника
         {
             if (byHeight == true)
             {
@@ -92,6 +92,17 @@ namespace tthk_triangle
                 h = H;
                 b = Math.Sqrt(Math.Pow(a / 2, 2) + Math.Pow(h, 2));
                 c = b;
+            }
+        }
+
+        public Triangle(bool byAngle, double A, double B, double angle) // конструктор с двумя сторонами и одним углом
+        {
+            if (byAngle)
+            {
+                a = A;
+                b = B;
+                c = Math.Sqrt( Math.Pow(A, 2) + Math.Pow(B, 2) - (2 * A * B) * Math.Cos(angle) );
+                h = Height();
             }
         }
 
@@ -116,6 +127,11 @@ namespace tthk_triangle
         public string OutputC()
         {
             return Convert.ToString(c);
+        }
+
+        public string OutputH()
+        {
+            return Convert.ToString(h);
         }
 
         public double Perimeter() // периметр
