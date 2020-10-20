@@ -127,7 +127,7 @@
             this.txtC.Size = new System.Drawing.Size(116, 24);
             this.txtC.TabIndex = 7;
             // 
-            // listView1
+            // listView
             // 
             this.listView.Alignment = System.Windows.Forms.ListViewAlignment.Left;
             this.listView.Columns.AddRange(new System.Windows.Forms.ColumnHeader[] {
@@ -136,7 +136,7 @@
             this.listView.HideSelection = false;
             this.listView.Location = new System.Drawing.Point(8, 8);
             this.listView.Margin = new System.Windows.Forms.Padding(2);
-            this.listView.Name = "listView1";
+            this.listView.Name = "listView";
             this.listView.Scrollable = false;
             this.listView.Size = new System.Drawing.Size(405, 168);
             this.listView.TabIndex = 9;
@@ -181,10 +181,10 @@
             this.pictureBox1.BackgroundImage = global::tthk_triangle.Properties.Resources.triang_noun_001_18172;
             this.pictureBox1.BackgroundImageLayout = System.Windows.Forms.ImageLayout.Stretch;
             this.pictureBox1.BorderStyle = System.Windows.Forms.BorderStyle.Fixed3D;
-            this.pictureBox1.Location = new System.Drawing.Point(443, 140);
+            this.pictureBox1.Location = new System.Drawing.Point(442, 142);
             this.pictureBox1.Margin = new System.Windows.Forms.Padding(2);
             this.pictureBox1.Name = "pictureBox1";
-            this.pictureBox1.Size = new System.Drawing.Size(172, 158);
+            this.pictureBox1.Size = new System.Drawing.Size(164, 156);
             this.pictureBox1.TabIndex = 1;
             this.pictureBox1.TabStop = false;
             // 

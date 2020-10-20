@@ -69,39 +69,39 @@ namespace tthk_triangle
 
 
         // Конструкторы
-        public Triangle(double A, double B, double C) // конструктор
+        public Triangle(double _a, double _b, double _c) // конструктор
         {
-            a = A;
-            b = B;
-            c = C;
+            a = _a;
+            b = _b;
+            c = _c;
             h = Height();
         }
 
-        public Triangle(bool byHeight, double A, double H) // конструктор равнобедренного треугольника
+        public Triangle(bool byHeight, double _a, double _h) // конструктор равнобедренного треугольника
         {
             if (byHeight == true)
             {
-                a = A;
-                h = H;
-                b = h;
+                a = _a;
+                h = _h;
+                b = _h;
                 c = Math.Sqrt(Math.Pow(a, 2) + Math.Pow(h, 2));
             }
             else 
             {
-                a = A;
-                h = H;
+                a = _a;
+                h = _h;
                 b = Math.Sqrt(Math.Pow(a / 2, 2) + Math.Pow(h, 2));
                 c = b;
             }
         }
 
-        public Triangle(bool byAngle, double A, double B, double angle) // конструктор с двумя сторонами и одним углом
+        public Triangle(bool byAngle, double _a, double _b, double angle) // конструктор с двумя сторонами и одним углом
         {
             if (byAngle)
             {
-                a = A;
-                b = B;
-                c = Math.Sqrt( Math.Pow(A, 2) + Math.Pow(B, 2) - (2 * A * B) * Math.Cos(angle) );
+                a = _a;
+                b = _b;
+                c = Math.Sqrt(Math.Pow(b, 2) + Math.Pow(a, 2) - 2 * a * b * Math.Acos(angle));
                 h = Height();
             }
         }
