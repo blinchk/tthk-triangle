@@ -237,7 +237,7 @@ namespace tthk_triangle
             this.PerformLayout();
         }
 
-        private void AddVisualElements(Triangle triangle)
+        private void FillListView(Triangle triangle)
         {
             listView.Items.Add("Сторона а"); // добавляем соответсвующие ячейки в коллекцию items объекта listview1
             listView.Items.Add("Сторона b"); // (при клике на кнопку Запуск первый столбец заполнится этими нашими именами)
@@ -255,15 +255,22 @@ namespace tthk_triangle
             listView.Items[4].SubItems.Add(Convert.ToString(triangle.Perimeter())); //выводим периметр
             listView.Items[5].SubItems.Add(Convert.ToString(triangle.HalfPerimeter())); //выводим полупериметр
             listView.Items[6].SubItems.Add(Convert.ToString(triangle.Surface())); // выводим значение площади
-            if (triangle.ExistTriangle) 
+            if (triangle.ExistTriangle)
             {
                 graphicsField.Clear(Color.White);
                 listView.Items[7].SubItems.Add("Существует");
-                triangle.DrawTriangle(graphicsField);
             } // свойство Triangle.exist
             else listView.Items[7].SubItems.Add("Не существует");
             listView.Items[8].SubItems.Add(triangle.TriangleType); // выводим вид треугольника
-            
+        }
+
+        private void ShowParamsOfTriangleToUser(Triangle triangle)
+        {
+            FillListView(triangle);
+            if (triangle.ExistTriangle)
+            {
+                triangle.DrawTriangle(graphicsField);
+            }
         }
 
         private void CheckValuesInTextboxes()
@@ -308,7 +315,7 @@ namespace tthk_triangle
                 b = Convert.ToDouble(txtB.Text); // считываем значение стороны b
                 c = Convert.ToDouble(txtC.Text); // считываем значение стороны c
                 Triangle triangle = new Triangle(a, b, c); // создаем объект класса Triangle с именем triangle
-                AddVisualElements(triangle);
+                ShowParamsOfTriangleToUser(triangle);
             }
             else if (txtA.Text.Length > 0 && txtH.Text.Length > 0)
             {
@@ -316,7 +323,7 @@ namespace tthk_triangle
                 a = Convert.ToDouble(txtA.Text); // считываем значение стороны а
                 h = Convert.ToDouble(txtH.Text);
                 Triangle triangle = new Triangle(byHeight, a, h); // создаем объект класса Triangle с именем triangle
-                AddVisualElements(triangle);
+                ShowParamsOfTriangleToUser(triangle);
             }
             else if (txtA.TextLength > 0 && txtB.TextLength > 0 && txtAngle.TextLength > 0)
             {
@@ -325,7 +332,7 @@ namespace tthk_triangle
                 b = Convert.ToDouble(txtB.Text);
                 angle = Convert.ToDouble(txtAngle.Text);
                 Triangle triangle = new Triangle(true, a, b, angle);
-                AddVisualElements(triangle);
+                ShowParamsOfTriangleToUser(triangle);
             }
         }
 
