@@ -74,6 +74,20 @@ namespace tthk_triangle
         }
 
         /// <summary>
+        /// Конструктор обычного треугольника.
+        /// </summary>
+        /// <param name="_a">Первая сторона</param>
+        /// <param name="_b">Вторая сторона</param>
+        /// <param name="_c">Третья сторона</param>
+        public Triangle(double _a, double _b, double _c)
+        {
+            a = _a;
+            b = _b;
+            c = _c;
+            h = Height();
+        }
+
+        /// <summary>
         /// Конструктор равнобедреннонго треугольника.
         /// </summary>
         /// <param name="byHeight">Является ли треугольник прямоугольным?</param>
