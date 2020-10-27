@@ -24,7 +24,6 @@ namespace tthk_triangle
         public Form3()
         {
             byHeight = false;
-            byAngle = false;
             components = new Container();
             ComponentResourceManager resources = new ComponentResourceManager(typeof(Form1));
 
@@ -335,7 +334,7 @@ namespace tthk_triangle
                 ShowParamsOfTriangleToUser(triangle);
             }
         }
-
+        
         private void txtC_TextChanged(object sender, EventArgs e)
         {
             CheckValuesInTextboxes();
