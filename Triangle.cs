@@ -17,31 +17,34 @@ namespace tthk_triangle
         
 
         // Свойства
-        public double GetSetA // получить или узнать значения стороны треугольника
+        public double A // получить или узнать значения стороны треугольника
         {
             get { return a; }
             set { a = value; }
         }
 
-        public double GetSetB
+        public double B
         {
             get { return b; }
             set { b = value; }
         }
 
-        public double GetSetC 
+        public double C
         {
             get { return c; }
             set { c = value; }
         }
 
-        public double GetSetH
+        public double H
         {
             get { return h; }
             set { h = value; }
         }
 
-        public bool ExistTriangle // существует ли треугольник
+        /// <summary>
+        /// Проверяет, существует ли треугольник или нет по формуле со сторонами.
+        /// </summary>
+        public bool ExistTriangle
         {
             get 
             {
@@ -101,7 +104,7 @@ namespace tthk_triangle
             {
                 a = _a;
                 b = _b;
-                c = Math.Sqrt(Math.Pow(b, 2) + Math.Pow(a, 2) - 2 * a * b * Math.Acos(angle));
+                c = Math.Sqrt(Math.Pow(b, 2) + Math.Pow(a, 2) - (2 * a * b) * Math.Cos(ToRadians(angle)));
                 h = Height();
             }
         }
@@ -140,11 +143,19 @@ namespace tthk_triangle
             return p;
         }
         
+        /// <summary>
+        /// Находит полупериметр по делению периметра на два.
+        /// </summary>
+        /// <returns>Полупериметр</returns>
         public double HalfPerimeter() // полупериметр
         {
             return Perimeter() / 2;
         }
 
+        /// <summary>
+        /// Нахождение площади по стандартной формуле.
+        /// </summary>
+        /// <returns>Вычисленную площадь.</returns>
         public double Surface() // площадь
         {
             double p = HalfPerimeter();
@@ -152,11 +163,24 @@ namespace tthk_triangle
             return s;
         }
 
+        /// <summary>
+        /// Вычисляет высоту по всем сторонам треугольника.
+        /// </summary>
+        /// <returns>Высоту треугольника.</returns>
         public double Height() // высота
         {
             double p = HalfPerimeter();
             double h = 2 * Math.Sqrt( p * (p - a) * (p - b) * (p - c) ) / a;
             return h;
+        }
+
+        /// <summary>
+        /// Перевод градусов в радианы.
+        /// </summary>
+        /// <returns>Ввведённое значение в радианах.</returns>
+        public static double ToRadians(double angle)
+        {
+            return angle * (Math.PI / 180);
         }
     }
 }

@@ -22,6 +22,10 @@ namespace tthk_triangle
             InitializeComponent();
         }
 
+        /// <summary>
+        ///  Добавляет визуальные элементы в список с параметрами треугольника, в зависимости от значений.
+        /// </summary>
+        /// <param name="triangle">Значение описываемого треугольника.</param>
         private void AddVisualElements(Triangle triangle)
         {
             listView.Items.Add("Сторона а"); // добавляем соответсвующие ячейки в коллекцию items объекта listview1
@@ -44,7 +48,10 @@ namespace tthk_triangle
             else listView.Items[7].SubItems.Add("Не существует");
             listView.Items[8].SubItems.Add(triangle.TriangleType); // выводим вид треугольника
         }
-
+        
+        /// <summary>
+        /// Проверяет значения в коробках.
+        /// </summary>
         private void CheckValuesInTextboxes()
         {
             if (txtH.TextLength > 0)
