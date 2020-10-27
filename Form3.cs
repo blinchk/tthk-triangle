@@ -18,6 +18,8 @@ namespace tthk_triangle
         private LinkLabel linkLabel1;
         private Container components;
         private bool byHeight, byAngle;
+        private Panel panel;
+        public Graphics graphicsField;
 
         public Form3()
         {
@@ -31,6 +33,8 @@ namespace tthk_triangle
             Name = "Form1";
             Text = "Работа с треугольником";
 
+            panel = new Panel();
+            graphicsField = panel.CreateGraphics();
             launchButton = new Button();
             txtA = new TextBox();
             label1 = new Label();
@@ -161,6 +165,9 @@ namespace tthk_triangle
             pictureBox1.TabIndex = 1;
             pictureBox1.TabStop = false;
 
+            panel.Location = new Point(442, 142);
+            panel.Size = new Size(164, 156);
+
             colorBindingSource.DataSource = typeof(Color);
 
             checkBox1.AutoSize = true;
@@ -220,8 +227,9 @@ namespace tthk_triangle
             Controls.Add(txtB);
             Controls.Add(label1);
             Controls.Add(txtA);
-            Controls.Add(pictureBox1);
+            // Controls.Add(pictureBox1);
             Controls.Add(launchButton);
+            Controls.Add(panel);
 
             ((ISupportInitialize)pictureBox1).EndInit();
             ((ISupportInitialize)colorBindingSource).EndInit();
@@ -247,9 +255,15 @@ namespace tthk_triangle
             listView.Items[4].SubItems.Add(Convert.ToString(triangle.Perimeter())); //выводим периметр
             listView.Items[5].SubItems.Add(Convert.ToString(triangle.HalfPerimeter())); //выводим полупериметр
             listView.Items[6].SubItems.Add(Convert.ToString(triangle.Surface())); // выводим значение площади
-            if (triangle.ExistTriangle) { listView.Items[7].SubItems.Add("Существует"); } // свойство Triangle.exist
+            if (triangle.ExistTriangle) 
+            {
+                graphicsField.Clear(Color.White);
+                listView.Items[7].SubItems.Add("Существует");
+                triangle.DrawTriangle(graphicsField);
+            } // свойство Triangle.exist
             else listView.Items[7].SubItems.Add("Не существует");
             listView.Items[8].SubItems.Add(triangle.TriangleType); // выводим вид треугольника
+            
         }
 
         private void CheckValuesInTextboxes()
