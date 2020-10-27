@@ -210,6 +210,4 @@ namespace tthk_triangle
             field.DrawPolygon(p, points);
         }
     }
-
-    class 
 }
