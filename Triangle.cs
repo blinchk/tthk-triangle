@@ -135,6 +135,10 @@ namespace tthk_triangle
             return Convert.ToString(c);
         }
 
+        /// <summary>
+        /// Вывод высоты треугольника.
+        /// </summary>
+        /// <returns>Высота треугольника в виде строки.</returns>
         public string OutputH()
         {
             return Convert.ToString(h);
