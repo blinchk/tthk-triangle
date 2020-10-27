@@ -184,6 +184,10 @@ namespace tthk_triangle
             return angle * (Math.PI / 180);
         }
 
+        /// <summary>
+        /// Рисует треугольник по параметрам указанным в полях.
+        /// </summary>
+        /// <param name="field">Поле для рисования треугольника.</param>
         public void DrawTriangle(Graphics field)
         {
             Pen p = new Pen(Brushes.Black, 2);
