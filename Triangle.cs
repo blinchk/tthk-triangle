@@ -7,10 +7,13 @@ using System.Threading.Tasks;
 
 namespace tthk_triangle
 {
+    /// <summary>
+    /// Класс треугольника.
+    /// </summary>
     class Triangle
     {
         
-        // Поля
+        // Поля треугольника
         public double a;
         public double b;
         public double c;
@@ -55,6 +58,9 @@ namespace tthk_triangle
             }
         }
 
+        /// <summary>
+        /// Выводит тип треугольника в качестве его свойства.
+        /// </summary>
         public string TriangleType
         {
             get
@@ -71,17 +77,13 @@ namespace tthk_triangle
             }
         }
 
-
-        // Конструкторы
-        public Triangle(double _a, double _b, double _c) // конструктор
-        {
-            a = _a;
-            b = _b;
-            c = _c;
-            h = Height();
-        }
-
-        public Triangle(bool byHeight, double _a, double _h) // конструктор равнобедренного треугольника
+        /// <summary>
+        /// Конструктор равнобедреннонго треугольника.
+        /// </summary>
+        /// <param name="byHeight">Является ли треугольник прямоугольным?</param>
+        /// <param name="_a">Сторона треугольника</param>
+        /// <param name="_h">Высота треугольника</param>
+        public Triangle(bool byHeight, double _a, double _h)
         {
             if (byHeight == true)
             {
@@ -98,7 +100,14 @@ namespace tthk_triangle
                 c = b;
             }
         }
-
+        
+        /// <summary>
+        /// Конструктор треугольника по углу и двум сторонам
+        /// </summary>
+        /// <param name="byAngle">Вызов правильного треугольника</param>
+        /// <param name="_a">Первая сторона</param>
+        /// <param name="_b">Вторая сторона</param>
+        /// <param name="angle">Угол, прилежащий к первум двум сторонам</param>
         public Triangle(bool byAngle, double _a, double _b, double angle) // конструктор с двумя сторонами и одним углом
         {
             if (byAngle)
@@ -108,13 +117,6 @@ namespace tthk_triangle
                 c = Math.Sqrt(Math.Pow(b, 2) + Math.Pow(a, 2) - (2 * a * b) * Math.Cos(ToRadians(angle)));
                 h = Height();
             }
-        }
-
-        public Triangle() // конструктор без атрибутов
-        {
-            a = 0;
-            b = 0;
-            c = 0;
         }
 
         // Методы
@@ -138,6 +140,10 @@ namespace tthk_triangle
             return Convert.ToString(h);
         }
 
+        /// <summary>
+        /// Вывод периметра треугольника.
+        /// </summary>
+        /// <returns>Периметр треугольника.</returns>
         public double Perimeter() // периметр
         {
             double p = a + b + c;
@@ -204,4 +210,6 @@ namespace tthk_triangle
             field.DrawPolygon(p, points);
         }
     }
+
+    class 
 }
